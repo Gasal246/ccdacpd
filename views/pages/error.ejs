@@ -1,0 +1,13 @@
+<%- include('head.ejs') %>
+<!-- NavBar -->
+<%- include('components/navbar.ejs') %>
+
+<div class="d-flex justify-content-center align-items-center" style="flex-direction: column;height: 80vh; width: 100%;">
+    <h1>Error In: <%= on %></h1>
+    <h3>Error: <%= msg %></h3>
+    <a href="/" class="btn btn-dark">Go back</a>
+</div>
+
+<%- include('components/footer.ejs') %>
+<div class="p-5 bg-dark"></div>
+<%- include('foot.ejs') %>

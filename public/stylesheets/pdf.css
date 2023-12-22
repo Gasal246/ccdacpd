@@ -1,0 +1,55 @@
+.pdf-container {
+  margin: 50px 50px;
+}
+.header {
+  display: flex;
+}
+.sidebox {
+  width: 100%;
+  padding: 10px 15px;
+  border: 2px solid black;
+  border-radius: 15px;
+}
+.mal-6 {
+  font-size: 11px;
+  font-weight: 700;
+}
+.mal-5 {
+  font-size: 12px;
+  font-weight: 700;
+}
+.formdata {
+  display: inline-block;
+  padding: 6px 10px;
+  white-space: nowrap;
+  color: rgb(37, 0, 0);
+}
+
+.formdata .value {
+  color: rgb(0, 45, 99);
+  text-decoration: underline dotted;
+  font-size: 11px;
+}
+.table-inputs th {
+  font-size: 10px;
+}
+.table-inputs td {
+  font-size: 9px !important;
+  margin: 0px 0px !important;
+  padding: 4px 2px !important;
+}
+.table-inputs td span {
+  font-size: 14px !important;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.footer{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.footer h6{
+  font-size: 12px;
+  font-weight: 700;
+}

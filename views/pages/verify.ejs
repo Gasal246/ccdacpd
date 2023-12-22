@@ -1,0 +1,35 @@
+<%- include('head.ejs') %>
+<!-- NavBar -->
+
+<div class="verifyWrap">
+
+    <div class="container">
+        <div class="col-12 text-center mb-4 memimg">
+            <img src="/images/header.png" width="100%">
+        </div>
+        <div class="row text-center p-5 d-flex justify-content-center align-items-center" style="flex-direction: column;">
+            <h5>Click on below Button to verify your email: <span><%= admin.email %></span></h5>
+            <a id="verification" class="verificationBtn fa-shake" style="--fa-animation-duration: 2.5s;"> <%= admin.email %> <i class="fa-solid fa-lock"></i></a>
+        </div>
+    </div>
+
+</div>
+
+<script>
+    document.getElementById('verification').addEventListener('click', (e)=>{
+        e.preventDefault()
+        $.ajax({
+            url: '/verify-admin/<%= admin._id %>',
+            method: 'post',
+            success: (res)=>{
+                if(res.success){
+                    location.href = '/'
+                }else{
+                    location.reload()
+                }
+            }
+        })
+    })
+</script>
+
+<%- include('foot.ejs') %>

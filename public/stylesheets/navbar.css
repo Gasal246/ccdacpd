@@ -1,0 +1,10 @@
+
+:root {
+    --dark: hwb(229 4% 72%);
+  }
+#progress-bar {
+    --progress: 0;
+    height: 10px;
+    width: var(--progress);
+    background: linear-gradient(to right, hwb(229 4% 72%), rgb(0, 171, 151));
+  }

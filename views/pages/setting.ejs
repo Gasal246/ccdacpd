@@ -1,0 +1,158 @@
+<%- include('head.ejs') %>
+<!-- NavBar -->
+<%- include('components/navbar.ejs') %>
+<div class="wrap-setting">
+  <div class="container mt-5">
+    <div class="row">
+      <div class="col-6">
+        <h3><%= adminInfo ? adminInfo.name : '' %></h3>
+        <h5><%= adminInfo ? adminInfo.email : '' %></h5>
+        <div class="mt-5">
+            <button class="btn btn-dark" id="editInfo">Edit info &nbsp;<i class="fa-solid fa-pencil"></i></button>
+            <button class="btn btn-dark" id="changePass">Change password &nbsp;<i class="fa-solid fa-lock"></i></button>
+        </div>
+      </div>
+      <div class="col-6 px-5">
+          <div class="admin-form">
+            <h5 class="text-center text-dark">Add new Admin ?</h5>
+            <form id="admin-form" method="post" action="/add-admin"> 
+                <div class="mb-3">
+                  <label class="form-label">Admin name</label>
+                  <input type="text" class="form-control" name="name" required>
+                </div>
+                <div class="mb-3">
+                  <label class="form-label">Email address</label>
+                  <input type="email" class="form-control" name="email" required>
+                </div>
+                <div class="mb-3">
+                  <label class="form-label">Password</label>
+                  <input type="password" class="form-control" name="pass" required>
+                </div>
+                <div class="mb-3">
+                  <label class="form-label">Confirm</label>
+                  <input type="password" class="form-control" name="cpass" required>
+                </div>
+                <button type="submit" class="btn btn-primary">Add new</button>
+              </form>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- edit info -->
+  <div class="popup-edit" id="edit-pop" style="display: none;">
+    <button class="btn btn-danger close-btn" id="close-edit-pop">cancel</button>
+    <div class="editform">
+        <h6>Edit your information</h6>
+        <form id="edit-form" method="post" action="/edit-admin/<%= adminInfo ? adminInfo._id : '' %>">
+            <div class="mb-3">
+              <label class="form-label">your name</label>
+              <input type="text" class="form-control" name="name" value="<%= adminInfo ? adminInfo.name : '' %>" required>
+            </div>
+            <div class="mb-3">
+              <label class="form-label">Email address</label>
+              <input type="email" class="form-control" name="email" value="<%= adminInfo ? adminInfo.email : '' %>" required>
+            </div>
+            <button type="submit" class="btn btn-primary">apply change</button>
+          </form>
+    </div>
+  </div>
+  <!-- change password -->
+  <div class="popup-edit" id="pass-pop" style="display: none;">
+    <button class="btn btn-danger close-btn" id="close-pass-pop">cancel</button>
+    <div class="editform">
+        <h6>Change your password</h6>
+        <form id="pass-form" method="post">
+            <div class="mb-3">
+              <label class="form-label">current password</label>
+              <input type="password" class="form-control" name="current" required>
+            </div>
+            <div class="mb-3">
+              <label class="form-label">new password</label>
+              <input type="password" class="form-control" name="pass" required>
+            </div>
+            <div class="mb-3">
+              <label class="form-label">confirm password</label>
+              <input type="password" class="form-control" name="cpass" required>
+            </div>
+            <button type="submit" class="btn btn-primary">change pass</button>
+          </form>
+    </div>
+  </div>
+</div>
+
+<%- include('components/footer.ejs') %>
+
+<script>
+  document.getElementById('pass-form').addEventListener('submit', (e)=>{
+    e.preventDefault()
+    if(validateForm){
+      $.ajax({
+        url: '/change-pass',
+        method: 'POST',
+        data: $('#pass-form').serialize(),
+        success: (res) => {
+          if(res.success){
+            showMessage(res.success)
+          }else{
+            showPopup(res.error)
+          }
+        }
+      })
+    }
+  })
+  function validateForm() {
+        const requiredFields = form.querySelectorAll("[required]");
+        for (const field of requiredFields) {
+          if (!field.value.trim()) {
+            return false; // Stop form submission if any required field is empty
+          }
+        }
+        return true; // All required fields are filled
+      }
+      function validateAddAdmin() {
+        let pass = document.getElementById('pass').value
+        let cpass = document.getElementById('cpass').value
+        if(pass == cpass){
+          return true
+        }else{
+          return false
+        }
+      }
+
+      document.getElementById('admin-form').addEventListener('submit', async (e)=>{
+        e.preventDefault()
+        if(validateAddAdmin){
+          $.ajax({
+            url: '/add-admin',
+            method: 'POST',
+            data: $('#admin-form').serialize(),
+            success: (res)=>{
+              if(res.success){
+                showMessage(res.success)
+              }else{
+                showPopup(res.error)
+              }
+            }
+          })
+        }
+      })
+</script>
+
+<script>
+    $(document).ready(()=>{
+        $('#editInfo').click(()=>{
+            $('#edit-pop').fadeToggle(200)
+        })
+        $('#close-edit-pop').click(()=>{
+            $('#edit-pop').fadeToggle(200)
+        })
+        $('#changePass').click(()=>{
+            $('#pass-pop').fadeToggle(200)
+        })
+        $('#close-pass-pop').click(()=>{
+            $('#pass-pop').fadeToggle(200)
+        })
+    })
+</script>
+
+<%- include('foot.ejs') %>

@@ -1,0 +1,319 @@
+<%- include('head.ejs') %>
+
+<!-- NavBar -->
+<%- include('components/navbar.ejs') %>
+<div class="wrapper-body">
+<form>
+    <div class="container">
+    <div class="row">
+        <div class="col-12 col-md-6 d-flex align-items-center justify-content-center animate__animated animate__backInDown" style="flex-direction: column;">
+            <h4>Cencus Form</h5>
+            <h5>Chirakkalpadi Community Development Association</h6>
+        </div>
+        <div class="col-12 col-md-6 mt-3" data-aos="fade-left">
+            <h6 class="text-center">Form <span class="text-secondary">CCDA</span></h5>
+            <input type="text" class="form-control m-1" name="panchayath" placeholder="പഞ്ചായത്ത്‌" required>
+            <input type="text" class="form-control m-1" name="ward" placeholder="വാര്‍ഡ്‌" required>
+            <input type="text" class="form-control m-1" name="sthalam" placeholder="സ്ഥലം" required>
+        </div>
+    </div>
+    <div class="row mt-3">
+        <div class="col-12 col-md-4 mb-3" data-aos="fade-up-right">
+            <div class="btn-group" role="group" aria-label="Basic radio toggle button group">
+                <input type="radio" class="btn-check" name="grahanathan" value="ഗൃഹനാഥന്‍" id="btnradio1" autocomplete="off" checked>
+                <label class="btn btn-outline-secondary" for="btnradio1" style="font-size: 14px;">ഗൃഹനാഥന്‍</label>
+                <input type="radio" class="btn-check" name="grahanathan" value="ഗൃഹനാഥ" id="btnradio2" autocomplete="off">
+                <label class="btn btn-outline-secondary" for="btnradio2" style="font-size: 14px;">നാഥ</label>
+              </div>
+        </div>
+        <div class="col-12 col-md-4" data-aos="fade-up-right">
+            <div class="mb-3">
+                <label class="form-label" style="font-size: 13px;">പേര്</label>
+                <input type="text" class="form-control" name="gperu" required>
+            </div>
+        </div>
+        <div class="col-12 col-md-4" data-aos="fade-up-right">
+            <div class="mb-3">
+                <label class="form-label" style="font-size: 13px;">വീട്ടുപേര്</label>
+                <input type="text" class="form-control" name="veetuper">
+            </div>
+        </div>
+        <div class="col-12 col-md-4" data-aos="fade-up-right">
+            <div class="mb-3">
+                <label class="form-label" style="font-size: 13px;">പിതാവിന്‍റെ പേര്</label>
+                <input type="text" class="form-control" name="pithav">
+            </div>
+        </div>
+        <div class="col-12 col-md-4" data-aos="fade-up-right">
+            <div class="mb-3">
+                <label class="form-label" style="font-size: 13px;">ഏരിയ / സ്ഥലം</label>
+                <input type="text" class="form-control" name="area">
+            </div>
+        </div>
+        <div class="col-12 col-md-4" data-aos="fade-up-right">
+            <div class="mb-3">
+                <label class="form-label" style="font-size: 13px;">താമസിക്കുന്ന സ്ഥലം</label>
+                <select name="thamasam" class="form-control" style="font-size: 13px;">
+                    <option style="font-size: 13px;" value="">തിരഞ്ഞെടുക്കുക</option>
+                    <option style="font-size: 13px;" value="സ്വന്തം">സ്വന്തം</option>
+                    <option style="font-size: 13px;" value="വാടക">വാടക</option>
+                    <option style="font-size: 13px;" value="കോളനി">കോളനി</option>
+                    <option style="font-size: 13px;" value="പുറംപോക്ക്">പുറംപോക്ക്</option>
+                </select>
+            </div>
+        </div>
+        <div class="col-12 col-md-4" data-aos="fade-up-right">
+            <div class="mb-3">
+                <label class="form-label" style="font-size: 13px;">വീടിന്‍റെ സ്വഭാവം</label>
+                <input type="text" class="form-control" name="veedinteswapavam">
+            </div>
+        </div>
+        <div class="col-12 col-md-4" data-aos="fade-up-right">
+            <div class="mb-3">
+                <label class="form-label" style="font-size: 13px;">റേഷന്‍കാര്‍ഡ്‌ കാറ്റഗറി</label>
+                <select name="rationcard" class="form-control" style="font-size: 13px;">
+                    <option style="font-size: 13px;" value="">തിരഞ്ഞെടുക്കുക</option>
+                    <option value="BPL">BPL</option>
+                    <option value="APL">APL</option>
+                    <option value="AAY">AAY</option>
+                </select>
+            </div>
+        </div>
+        <div class="col-12 col-md-4" data-aos="fade-up-right">
+            <div class="mb-3">
+                <label class="form-label" style="font-size: 13px;">വാഹന സൗകര്യം</label>
+                <input type="text" class="form-control" name="vahanam">
+            </div>
+        </div>
+        <div class="col-12 col-md-4" data-aos="fade-up-right">
+            <div class="mt-3 mb-3">
+                <label class="form-label" style="font-size: 13px;">ഭൂരഹിതനാണോ ?</label>
+                <div class="btn-group" role="group" aria-label="Basic radio toggle button group">
+                    <input type="radio" class="btn-check" name="boorahithan" value="true" id="btnradio3" autocomplete="off">
+                    <label class="btn btn-outline-secondary" for="btnradio3" style="font-size: 14px;">അതെ</label>
+                    <input type="radio" class="btn-check" name="boorahithan" value="false" id="btnradio4" autocomplete="off">
+                    <label class="btn btn-outline-secondary" for="btnradio4" style="font-size: 14px;">അല്ലാ</label>
+                  </div>
+            </div>
+        </div>
+        <div class="col-12 col-md-4" data-aos="fade-up-right">
+            <div class="mt-3 mb-3">
+                <label class="form-label" style="font-size: 13px;">ഭിന്നശേഷി ഉള്ളവര്‍ ?</label>
+                <div class="btn-group" role="group" aria-label="Basic radio toggle button group">
+                    <input type="radio" class="btn-check" name="binnasheshi" value="true" id="btnradio5" autocomplete="off">
+                    <label class="btn btn-outline-secondary" for="btnradio5" style="font-size: 14px;">ഉണ്ട്</label>
+                    <input type="radio" class="btn-check" name="binnasheshi" value="false" id="btnradio6" autocomplete="off">
+                    <label class="btn btn-outline-secondary" for="btnradio6" style="font-size: 14px;">ഇല്ല</label>
+                  </div>
+            </div>
+        </div>
+        <div class="col-12 col-md-4" data-aos="fade-up-right">
+            <div class="mb-3">
+                <label class="form-label" style="font-size: 13px;">വിശദ വിവരം</label>
+                <input type="text" class="form-control" name="vishadavivaram1">
+            </div>
+        </div>
+        <div class="col-12 col-md-4" data-aos="fade-up-right">
+            <div class="mt-3 mb-3">
+                <label class="form-label" style="font-size: 13px;">ജല ലഭ്യത ?</label>
+                <div class="btn-group" role="group" aria-label="Basic radio toggle button group">
+                    <input type="radio" class="btn-check" name="jalam" value="true" id="btnradio7" autocomplete="off">
+                    <label class="btn btn-outline-secondary" for="btnradio7" style="font-size: 14px;">ഉണ്ട്</label>
+                    <input type="radio" class="btn-check" name="jalam" value="false" id="btnradio8" autocomplete="off">
+                    <label class="btn btn-outline-secondary" for="btnradio8" style="font-size: 14px;">ഇല്ല</label>
+                  </div>
+            </div>
+        </div>
+        <div class="col-12 col-md-4" data-aos="fade-up-right">
+            <div class="mb-3">
+                <label class="form-label" style="font-size: 13px;">വിശദ വിവരം</label>
+                <input type="text" class="form-control" name="vishadavivaram2">
+            </div>
+        </div>
+        <div class="col-12 col-md-4" data-aos="fade-up-right">
+            <div class="mb-3">
+                <label class="form-label" style="font-size: 13px;">ലാന്‍റ് മാര്‍ക്ക്‌</label>
+                <input type="text" class="form-control" name="landmark">
+            </div>
+        </div>
+        <div class="col-12 col-md-4" data-aos="fade-up-right">
+            <div class="mb-3">
+                <label class="form-label" style="font-size: 13px;">പോസ്റ്റല്‍ അഡ്രസ്സ്</label>
+                <textarea type="text" class="form-control" name="address"></textarea>
+            </div>
+        </div>
+        <div class="col-12 col-md-4" data-aos="fade-up-right">
+            <div class="mb-3">
+                <label class="form-label" style="font-size: 13px;">പഞ്ചായത്ത്‌</label>
+                <input type="text" class="form-control" name="panchayath2">
+            </div>
+        </div>
+        <div class="col-12 col-md-4" data-aos="fade-up-right">
+            <div class="mb-3">
+                <label class="form-label" style="font-size: 13px;">വാര്‍ഡ്‌, കെട്ടിട നമ്പര്‍</label>
+                <input type="text" class="form-control" name="wardhome" placeholder="use comma(',')">
+            </div>
+        </div>
+        <div class="col-12 col-md-4" data-aos="fade-up-right">
+            <div class="mb-3">
+                <label class="form-label" style="font-size: 13px;">മൊബൈല്‍ (SMS)</label>
+                <input type="text" class="form-control" name="mobile">
+            </div>
+        </div>
+        <div class="col-12 col-md-4" data-aos="fade-up-right">
+            <div class="mb-3">
+                <label class="form-label" >Whatsapp</label>
+                <input type="text" class="form-control" name="whatsapp">
+            </div>
+        </div>
+        <div class="col-12 col-md-4" data-aos="fade-up-right">
+            <div class="mb-3">
+                <label class="form-label" >Email</label>
+                <input type="text" class="form-control" name="email">
+            </div>
+        </div>
+        <div class="col-12 col-md-4" data-aos="fade-up-right">
+            <div class="mb-3">
+                <label class="form-label" >Extra 1</label>
+                <textarea type="text" class="form-control" name="extra1"></textarea>
+            </div>
+        </div>
+        <div class="col-12 col-md-4" data-aos="fade-up-right">
+            <div class="mb-3">
+                <label class="form-label" >Extra 2</label>
+                <textarea type="text" class="form-control" name="extra2"></textarea>
+            </div>
+        </div>
+    </div>
+    </div>
+    <div class="px-5 mb-5">
+    <div class="row mt-4 mb-3" data-aos="fade-up-right" style="overflow-x: scroll;">
+        <table class="table table-secondary table-striped-columns table-inputs">
+            <thead>
+              <tr>
+                <th>S.no</th>
+                <th style="width: 150px;">പേര്</th>
+                <th style="width: 150px;">രക്ഷിതാവിന്‍റെ പേര്</th>
+                <th>പുരു./ സ്ത്രീ</th>
+                <th>കുടുംബനാഥനു മായുള്ള ബന്ധം</th>
+                <th>രക്ത ഗ്രൂപ്പ്‌</th>
+                <th style="width: 100px;">ജനന തിയ്യതി</th>
+                <th>മൊബൈല്‍ നമ്പര്‍</th>
+                <th>ശാരീരിക അവസ്ഥ</th>
+                <th style="width: 100px;">വൈവാഹിക അവസ്ഥ</th>
+                <th style="width: 100px;">ജോലി</th>
+                <th style="width: 100px;">ജോലി സ്ഥലം</th>
+                <th>അനാഥര്‍</th>
+                <th>വിദ്യഭ്യാസ യോഗ്യത</th>
+                <th>പഠിക്കുന്ന തരം</th>
+                <th>ഇന്‍ഷുറന്‍സ്</th>
+              </tr>
+            </thead>
+            <tbody id="table-body">
+              <tr>
+                <td><span>1</span></td>
+                <td><input type="text" class="form-control" name="tableData[0].peru"></td>
+                <td><input type="text" class="form-control" name="tableData[0].rakshithav"></td>
+                <td><input type="text" class="form-control" name="tableData[0].linkam"></td>
+                <td><input type="text" class="form-control" name="tableData[0].bandham"></td>
+                <td><input type="text" class="form-control" name="tableData[0].raktham"></td>
+                <td><input type="date" class="form-control" name="tableData[0].dob"></td>
+                <td><input type="text" class="form-control" name="tableData[0].phone"></td>
+                <td><input type="text" class="form-control" name="tableData[0].avastha"></td>
+                <td><input type="text" class="form-control" name="tableData[0].vivaham"></td>
+                <td><input type="text" class="form-control" name="tableData[0].joli"></td>
+                <td><input type="text" class="form-control" name="tableData[0].jolisthalam"></td>
+                <td><input type="text" class="form-control" name="tableData[0].anathar"></td>
+                <td><input type="text" class="form-control" name="tableData[0].education"></td>
+                <td><input type="text" class="form-control" name="tableData[0].standard"></td>
+                <td><input type="text" class="form-control" name="tableData[0].insurance"></td>
+              </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="d-flex" style="justify-content: space-between;">
+        <button class="btn btn-secondary mb-4" id="addrow" type="button">add row <i class="fa-solid fa-plus"></i></button>
+        <button class="btn btn-success mb-4" type="submit" id="submitbtn" >save and preview <i class="fa-solid fa-eye"></i></button>
+    </div>
+</div>
+<div class="mb-5"></div>
+</form>
+</div>
+<%- include('components/footer.ejs') %>
+<!-- ... your HTML code ... -->
+
+<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script> <!-- Include jQuery -->
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const tableBody = document.getElementById("table-body");
+      const addButton = document.getElementById("addrow");
+      const submitButton = document.getElementById("submitbtn");
+      const form = document.querySelector("form");
+  
+      addButton.addEventListener("click", function () {
+        const newRow = document.createElement("tr");
+        newRow.innerHTML = `
+          <td><span>${tableBody.children.length + 1}</span></td>
+          <td><input type="text" class="form-control" name="tableData[${tableBody.children.length}].peru"></td>
+          <td><input type="text" class="form-control" name="tableData[${tableBody.children.length}].rakshithav"></td>
+          <td><input type="text" class="form-control" name="tableData[${tableBody.children.length}].linkam"></td>
+          <td><input type="text" class="form-control" name="tableData[${tableBody.children.length}].bandham"></td>
+          <td><input type="text" class="form-control" name="tableData[${tableBody.children.length}].raktham"></td>
+          <td><input type="date" class="form-control" name="tableData[${tableBody.children.length}].dob"></td>
+          <td><input type="text" class="form-control" name="tableData[${tableBody.children.length}].phone"></td>
+          <td><input type="text" class="form-control" name="tableData[${tableBody.children.length}].avastha"></td>
+          <td><input type="text" class="form-control" name="tableData[${tableBody.children.length}].vivaham"></td>
+          <td><input type="text" class="form-control" name="tableData[${tableBody.children.length}].joli"></td>
+          <td><input type="text" class="form-control" name="tableData[${tableBody.children.length}].jolisthalam"></td>
+          <td><input type="text" class="form-control" name="tableData[${tableBody.children.length}].anathar"></td>
+          <td><input type="text" class="form-control" name="tableData[${tableBody.children.length}].education"></td>
+          <td><input type="text" class="form-control" name="tableData[${tableBody.children.length}].standard"></td>
+          <td><input type="text" class="form-control" name="tableData[${tableBody.children.length}].insurance"></td>
+          <td><button type="button" class="btn btn-danger btn-sm" onclick="removeRow(this)"><i class="fa-solid fa-trash"></i></button></td>
+        `;
+        tableBody.appendChild(newRow);
+      });
+  
+      submitButton.addEventListener("click", function () {
+        if (validateForm()) {
+          $.ajax({
+            type: "POST",
+            url: "/data", // Replace with your actual backend endpoint
+            data: $(form).serialize(),
+            success: function (response) {
+              console.log("Server Response:", response);
+              if (response.success) {
+                location.href('/');
+              }
+            }
+          });
+        } else {
+          showPopup("Please fill in all required fields before submitting.");
+        }
+      });
+
+      function validateForm() {
+        const requiredFields = form.querySelectorAll("[required]");
+        for (const field of requiredFields) {
+          if (!field.value.trim()) {
+            return false; // Stop form submission if any required field is empty
+          }
+        }
+        return true; // All required fields are filled
+      }
+    });
+  
+    async function removeRow(button) {
+        let prompt = await showConfirm("Are you sure to delete this row?");
+        if (prompt) {
+            const row = button.closest("tr");
+            row.remove();
+        }
+    }
+  </script>
+
+<!-- ... your HTML code ... -->
+
+
+<%- include('foot.ejs') %>

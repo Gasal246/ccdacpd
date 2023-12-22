@@ -1,0 +1,129 @@
+<%- include('head.ejs') %>
+<!-- NavBar -->
+<%- include('components/navbar.ejs') %>
+<div class="datapage">
+    <div class="row search-area">
+      <div>
+        <form id="searchForm">
+          <div class="search-box w-75 animate__animated animate__pulse">
+            <input type="search" placeholder="click search button for all search" id="searchInput">
+            <button type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
+          </div>
+        </form>
+      </div>
+    </div>
+    <div class="row data-area mt-3">
+      <% if (searchQuery) { %>
+        <div class="alert alert-info" role="alert">
+          Showing results for: <%= searchQuery %>
+        </div>
+      <% } %>
+        <table class="table table-striped-columns bg-transparent table-data animate__animated animate__fadeInUp">
+            <thead>
+              <tr>
+                <th scope="col">Sno</th>
+                <th scope="col">Form No.</th>
+                <th scope="col">പേര്</th>
+                <th scope="col">അതികാരം</th>
+                <th scope="col">മൊബൈല്‍ നമ്പര്‍</th>
+                <th scope="col">പഞ്ചായത്ത്</th>
+                <th scope="col">സെന്‍സസ് തിയ്യതി</th>
+                <th scope="col">ശേകരിച്ചത്</th>
+                <th scope="col">കാണുക / തിരുത്തുക</th>
+                <th scope="col">കളയുക</th>
+              </tr>
+            </thead>
+            <tbody>
+              <% data.map((e, i) => { %>
+              <tr>
+                <th scope="row"><%= (currentPage - 1) * limit + i + 1 %></th>
+                <td class="name"><%= e.Formnumber || 0 %></td>
+                <td class="name"><%= e.Gperu || '' %></td>
+                <td><%= e.Grahanathan || '' %></td>
+                <td><%= e.Mobile || '' %></td>
+                <td><%= e.Panchayath || '' %></td>
+                <td><%= new Date(e.Addon).toDateString() || '' %></td>
+                <td class="written"><%= e.Written || 'not found' %></td>
+                <td class="text-center"><a href="/edit-data?id=<%= e._id || '' %>" class="viewBtn">view <i class="fa-solid fa-eye" style="font-size: 13px;"></i></a></td>
+                <td class="text-center"><a href="" onclick="deleteData('<%= e._id %>', '<%= e.Formnumber || 0 %>')" class="removeBtn">delete <i style="font-size: 13px;" class="fa-solid fa-trash-can"></i></a></td>
+              </tr>
+              <% }) %>
+            </tbody>
+          </table>
+        </div>
+        <div class="d-flex">
+          <div class="pagination">
+            <% if (currentPage > 1) { %>
+              <a href="?page=<%= currentPage - 1 %>&limit=<%= limit %>" class="prev"><i class="fa-solid fa-caret-left"></i></a>
+            <% } %>
+      
+            <% for (let page = 1; page <= totalPages; page++) { %>
+              <a href="?page=<%= page %>&limit=<%= limit %>" class="<%= page === currentPage ? 'page p-active' : 'page' %>"><%= page %></a>
+            <% } %>
+      
+            <% if (currentPage < totalPages) { %>
+              <a href="?page=<%= currentPage + 1 %>&limit=<%= limit %>" class="next"><i class="fa-solid fa-caret-right"></i></a>
+            <% } %>
+          </div>
+        </div>
+  </div>
+  <div class="mb-2"></div>
+
+  <script>
+    async function deleteData(id, fn){
+      event.preventDefault()
+      let query = await showConfirm("Are you sure to delete form "+fn);
+      if(query){
+        $.ajax({
+        url: '/delete-data?id='+id,
+        method: 'POST',
+        success: async (res) => {
+          if(res.success){
+            await showMessage(res.success)
+            location.reload()
+          }else{
+            showPopup(res.error)
+          }
+        }
+      })
+      }
+    }
+  </script>
+
+<script>
+  $(document).ready(function() {
+    // Add an event listener to the search input field
+    $('#searchInput').on('input', function() {
+      // Get the search query from the input field
+      var searchQuery = $(this).val().toLowerCase();
+
+      // Loop through each table row and hide/show based on the search query
+      $('tbody tr').each(function() {
+        var name = $(this).find('.name').text().toLowerCase();
+        var written = $(this).find('.written').text().toLowerCase();
+
+        if (name.includes(searchQuery) || written.includes(searchQuery)) {
+          $(this).show();
+        } else {
+          $(this).hide();
+        }
+      });
+    });
+  });
+</script>
+<script>
+  $(document).ready(function() {
+    // Add an event listener to the search form
+    $('#searchForm').submit(function(event) {
+      event.preventDefault();
+
+      // Get the search query from the input field
+      var searchQuery = $('#searchInput').val().toLowerCase();
+
+      // Redirect to the same page with the search query as a query parameter
+      window.location.href = '/cdata?search=' + searchQuery;
+    });
+  });
+</script>
+
+<%- include('foot.ejs') %>
