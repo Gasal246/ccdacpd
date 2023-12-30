@@ -17,17 +17,17 @@
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     />
-    <link rel="stylesheet" href="/stylesheets/pdf.css">
+    <link rel="stylesheet" href="http://localhost:3000/stylesheets/pdf.css">
   </head>
   <body>
 
     <div class="pdf-container">
         <div class="header">
-            <img style="height: 120px;" src="/images/top.png" alt="top-Image">
+            <img style="height: 120px;" src="http://localhost:3000/images/top.png" alt="top-Image">
             <div class="sidebox">
                 <h6 class="text-center" style="font-size: 13px; font-weight: 700;">ഓഫീസ് ഉപയോഗത്തിന്</h6>
                 <div class="row">
-                    <span class="mal-6 m-1">ഫോറം നമ്പര്‍: <span>1234</span></span>
+                    <span class="mal-6 m-1">ഫോറം നമ്പര്‍: <span><%= data.Formnumber || 0 %></span></span>
                     <span class="mal-6 m-1">പഞ്ചായത്ത്‌: <span>കരക്കുരുഷി</span></span>
                     <span class="mal-6 m-1">വാര്‍ഡ്‌: <span>06</span></span>
                     <span class="mal-6 m-1">സ്ഥലം: <span>വാഴംബുറം</span></span>
@@ -36,28 +36,29 @@
         </div>
         <div class="formDetails mt-4">
             <div class="px-1">
-                <span class="mal-5 formdata">ഗൃഹനാഥന്‍: <span class="value">അധെഹതിനെ പേര്</span></span>
-                <span class="mal-5 formdata">വീട്ടുപേര്: <span class="value">അധെഹതിനെ പേര്</span></span>
-                <span class="mal-5 formdata">പിതാവിന്‍റെ പേര്: <span class="value">അധെഹതിനെ പേര്</span></span>
-                <span class="mal-5 formdata">ഏരിയ / സ്ഥലം: <span class="value">അധെഹതിനെ പേര്</span></span>
-                <span class="mal-5 formdata">താമസിക്കുന്ന സ്ഥലം: <span class="value">അധെഹതിനെ പേര്</span></span>
-                <span class="mal-5 formdata">വീടിന്‍റെ സ്വഭാവം: <span class="value">അധെഹതിനെ പേര്</span></span>
-                <span class="mal-5 formdata">റേഷന്‍കാര്‍ഡ്‌ കാറ്റഗറി: <span class="value">അധെഹതിനെ പേര്</span></span>
-                <span class="mal-5 formdata">വാഹന സൗകര്യം: <span class="value">അധെഹതിനെ പേര്</span></span>
-                <span class="mal-5 formdata">ഭൂരഹിതനാണോ: <span class="value">അധെഹതിനെ പേര്</span></span>
-                <span class="mal-5 formdata">ഭിന്നശേഷി ഉള്ളവര്‍: <span class="value">അധെഹതിനെ പേര്</span></span>
-                <span class="mal-5 formdata">വിശദ വിവരം: <span class="value">അധെഹതിനെ പേര്</span></span>
-                <span class="mal-5 formdata">ജല ലഭ്യത: <span class="value">അധെഹതിനെ പേര്</span></span>
-                <span class="mal-5 formdata">വിശദ വിവരം: <span class="value">അധെഹതിനെ പേര്</span></span>
-                <span class="mal-5 formdata">ലാന്‍റ് മാര്‍ക്ക്‌: <span class="value">അധെഹതിനെ പേര്</span></span>
-                <span class="mal-5 formdata">പോസ്റ്റല്‍ അഡ്രസ്സ്: <span class="value">അധെഹതിനെ പേര്</span></span>
-                <span class="mal-5 formdata">പഞ്ചായത്ത്: <span class="value">അധെഹതിനെ പേര്</span></span>
-                <span class="mal-5 formdata">വാര്‍ഡ്‌, കെട്ടിട നമ്പര്‍: <span class="value">അധെഹതിനെ പേര്</span></span>
-                <span class="mal-5 formdata">മൊബൈല്‍ (SMS): <span class="value">അധെഹതിനെ പേര്</span></span>
-                <span class="mal-5 formdata">Whatsapp: <span class="value">അധെഹതിനെ പേര്</span></span>
-                <span class="mal-5 formdata">Email: <span class="value">അധെഹതിനെ പേര്</span></span>
-                <span class="mal-5 formdata">Extra 1: <span class="value">അധെഹതിനെ പേര്</span></span>
-                <span class="mal-5 formdata">Extra 2: <span class="value">അധെഹതിനെ പേര്</span></span>
+                <span class="mal-5 formdata"><%= data.Grahanathan || 0 %></span>
+                <span class="mal-5 formdata">പേര്: <span class="value"><%= data.Gperu || 0 %></span></span>
+                <span class="mal-5 formdata">വീട്ടുപേര്: <span class="value"><%= data.Veetuperu || 0 %></span></span>
+                <span class="mal-5 formdata">പിതാവിന്‍റെ പേര്: <span class="value"><%= data.Pithav || 0 %></span></span>
+                <span class="mal-5 formdata">ഏരിയ / സ്ഥലം: <span class="value"><%= data.Area || 0 %></span></span>
+                <span class="mal-5 formdata">താമസിക്കുന്ന സ്ഥലം: <span class="value"><%= data.Sthalam || 0 %></span></span>
+                <span class="mal-5 formdata">വീടിന്‍റെ സ്വഭാവം: <span class="value"><%= data.Veedinteswapavam || 0 %></span></span>
+                <span class="mal-5 formdata">റേഷന്‍കാര്‍ഡ്‌ കാറ്റഗറി: <span class="value"><%= data.Rationcard || 0 %></span></span>
+                <span class="mal-5 formdata">വാഹന സൗകര്യം: <span class="value"><%= data.Vahanam || 0 %></span></span>
+                <span class="mal-5 formdata">ഭൂരഹിതനാണോ: <span class="value"><%= data.Boorahithan || 0 %></span></span>
+                <span class="mal-5 formdata">ഭിന്നശേഷി ഉള്ളവര്‍: <span class="value"><%= data.Binnasheshi || 0 %></span></span>
+                <span class="mal-5 formdata">വിശദ വിവരം: <span class="value"><%= data.Vishadavivaram1 || 0 %></span></span>
+                <span class="mal-5 formdata">ജല ലഭ്യത: <span class="value"><%= data.Jalam || 0 %></span></span>
+                <span class="mal-5 formdata">വിശദ വിവരം: <span class="value"><%= data.Vishadavivaram2 || 0 %></span></span>
+                <span class="mal-5 formdata">ലാന്‍റ് മാര്‍ക്ക്‌: <span class="value"><%= data.Landmark || 0 %></span></span>
+                <span class="mal-5 formdata">പോസ്റ്റല്‍ അഡ്രസ്സ്: <span class="value"><%= data.Address || 0 %></span></span>
+                <span class="mal-5 formdata">പഞ്ചായത്ത്: <span class="value"><%= data.Panchayath2 || 0 %></span></span>
+                <span class="mal-5 formdata">വാര്‍ഡ്‌, കെട്ടിട നമ്പര്‍: <span class="value"><%= data.Wardhome || 0 %></span></span>
+                <span class="mal-5 formdata">മൊബൈല്‍ (SMS): <span class="value"><%= data.Mobile || 0 %></span></span>
+                <span class="mal-5 formdata">Whatsapp: <span class="value"><%= data.Whatasapp || 0 %></span></span>
+                <span class="mal-5 formdata">Email: <span class="value"><%= data.Email || 0 %></span></span>
+                <span class="mal-5 formdata">Extra 1: <span class="value"><%= data.Extra1 || 0 %></span></span>
+                <span class="mal-5 formdata">Extra 2: <span class="value"><%= data.Extra2 || 0 %></span></span>
             </div>
         </div>
         <div class="row mt-4">
@@ -83,24 +84,26 @@
                   </tr>
                 </thead>
                 <tbody id="table-body">
-                  <tr>
-                    <td><span>1</span></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                  </tr>
+                  <% data.Tabledata.forEach((row, index) => { %>
+                    <tr>
+                      <td><span><%= index + 1 %></span></td>
+                      <td><%= row.Peru || '' %></td>
+                      <td><%= row.Rakshithav || '' %></td>
+                      <td><%= row.Linkam || '' %></td>
+                      <td><%= row.Bandham || '' %></td>
+                      <td><%= row.Raktham || '' %></td>
+                      <td style="font-size: 11px!important;"><%= row.Dob ? new Date(row.Dob).toISOString().split('T')[0] : '' %></td>
+                      <td><%= row.Phone || '' %></td>
+                      <td><%= row.Avastha || '' %></td>
+                      <td><%= row.Vivaham || '' %></td>
+                      <td><%= row.Joli || '' %></td>
+                      <td><%= row.Jolisthalam || '' %></td>
+                      <td><%= row.Anathar || '' %></td>
+                      <td><%= row.Education || '' %></td>
+                      <td><%= row.Standard || '' %></td>
+                      <td><%= row.Insurance || '' %></td>
+                    </tr>
+                    <% }); %>
                 </tbody>
             </table>
         </div>

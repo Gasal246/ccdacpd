@@ -31,6 +31,7 @@
                 <th scope="col">ശേകരിച്ചത്</th>
                 <th scope="col">കാണുക / തിരുത്തുക</th>
                 <th scope="col">കളയുക</th>
+                <th scope="col" style="font-size: 22px;"><i class="fa-solid fa-file-pdf"></i></th>
               </tr>
             </thead>
             <tbody>
@@ -46,6 +47,7 @@
                 <td class="written"><%= e.Written || 'not found' %></td>
                 <td class="text-center"><a href="/edit-data?id=<%= e._id || '' %>" class="viewBtn">view <i class="fa-solid fa-eye" style="font-size: 13px;"></i></a></td>
                 <td class="text-center"><a href="" onclick="deleteData('<%= e._id %>', '<%= e.Formnumber || 0 %>')" class="removeBtn">delete <i style="font-size: 13px;" class="fa-solid fa-trash-can"></i></a></td>
+                <td><a href="/pdf/<%= e._id %>"><i class="fa-solid fa-download"></i></a></td>
               </tr>
               <% }) %>
             </tbody>

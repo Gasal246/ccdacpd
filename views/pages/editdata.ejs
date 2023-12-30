@@ -22,7 +22,7 @@
             <div class="btn-group" role="group" aria-label="Basic radio toggle button group">
                 <input type="radio" class="btn-check" name="grahanathan" value="ഗൃഹനാഥന്‍" id="btnradio1" autocomplete="off" <%= data.Grahanathan === "ഗൃഹനാഥന്‍" ? 'checked' : '' %> >
                 <label class="btn btn-outline-secondary" for="btnradio1" style="font-size: 14px;">ഗൃഹനാഥന്‍</label>
-                <input type="radio" class="btn-check" name="grahanathan" value="ഗൃഹനാഥ" id="btnradio1" autocomplete="off" <%= data.Grahanathan === "ഗൃഹനാഥ" ? 'checked' : '' %> >
+                <input type="radio" class="btn-check" name="grahanathan" value="ഗൃഹനാഥ" id="btnradio2" autocomplete="off" <%= data.Grahanathan === "ഗൃഹനാഥ" ? 'checked' : '' %> >
                 <label class="btn btn-outline-secondary" for="btnradio2" style="font-size: 14px;">നാഥ</label>
               </div>
         </div>
@@ -184,6 +184,7 @@
                 <textarea type="text" class="form-control" name="extra2"><%= data.Extra2 || '' %></textarea>
             </div>
         </div>
+        <input type="number" name="formno" value="<%= data.Formnumber || '' %>">
     </div>
     </div>
     <div class="px-5 mb-5">
@@ -210,24 +211,27 @@
               </tr>
             </thead>
             <tbody id="table-body">
+                <% data.Tabledata.forEach((row, index) => { %>
               <tr>
-                <td><span>1</span></td>
-                <td><input type="text" class="form-control" name="tableData[0].peru"></td>
-                <td><input type="text" class="form-control" name="tableData[0].rakshithav"></td>
-                <td><input type="text" class="form-control" name="tableData[0].linkam"></td>
-                <td><input type="text" class="form-control" name="tableData[0].bandham"></td>
-                <td><input type="text" class="form-control" name="tableData[0].raktham"></td>
-                <td><input type="date" class="form-control" name="tableData[0].dob"></td>
-                <td><input type="text" class="form-control" name="tableData[0].phone"></td>
-                <td><input type="text" class="form-control" name="tableData[0].avastha"></td>
-                <td><input type="text" class="form-control" name="tableData[0].vivaham"></td>
-                <td><input type="text" class="form-control" name="tableData[0].joli"></td>
-                <td><input type="text" class="form-control" name="tableData[0].jolisthalam"></td>
-                <td><input type="text" class="form-control" name="tableData[0].anathar"></td>
-                <td><input type="text" class="form-control" name="tableData[0].education"></td>
-                <td><input type="text" class="form-control" name="tableData[0].standard"></td>
-                <td><input type="text" class="form-control" name="tableData[0].insurance"></td>
+                <td><span><%= index + 1 %></span></td>
+                <td><input type="text" class="form-control" name="tableData[<%= index %>].peru" value="<%= row.Peru || '' %>"></td>
+                <td><input type="text" class="form-control" name="tableData[<%= index %>].rakshithav" value="<%= row.Rakshithav || '' %>"></td>
+                <td><input type="text" class="form-control" name="tableData[<%= index %>].linkam" value="<%= row.Linkam || '' %>"></td>
+                <td><input type="text" class="form-control" name="tableData[<%= index %>].bandham" value="<%= row.Bandham || '' %>"></td>
+                <td><input type="text" class="form-control" name="tableData[<%= index %>].raktham" value="<%= row.Raktham || '' %>"></td>
+                <td><input type="date" class="form-control" name="tableData[<%= index %>].dob" value="<%= row.Dob ? new Date(row.Dob).toISOString().split('T')[0] : '' %>"></td>
+                <td><input type="text" class="form-control" name="tableData[<%= index %>].phone" value="<%= row.Phone || '' %>"></td>
+                <td><input type="text" class="form-control" name="tableData[<%= index %>].avastha" value="<%= row.Avastha || '' %>"></td>
+                <td><input type="text" class="form-control" name="tableData[<%= index %>].vivaham" value="<%= row.Vivaham || '' %>"></td>
+                <td><input type="text" class="form-control" name="tableData[<%= index %>].joli" value="<%= row.Joli || '' %>"></td>
+                <td><input type="text" class="form-control" name="tableData[<%= index %>].jolisthalam" value="<%= row.Jolisthalam || '' %>"></td>
+                <td><input type="text" class="form-control" name="tableData[<%= index %>].anathar" value="<%= row.Anathar || '' %>"></td>
+                <td><input type="text" class="form-control" name="tableData[<%= index %>].education" value="<%= row.Education || '' %>"></td>
+                <td><input type="text" class="form-control" name="tableData[<%= index %>].standard" value="<%= row.Standard || '' %>"></td>
+                <td><input type="text" class="form-control" name="tableData[<%= index %>].insurance" value="<%= row.Insurance || '' %>"></td>
+                <td><button type="button" class="btn btn-danger btn-sm" onclick="removeRow(this)"><i class="fa-solid fa-trash"></i></button></td>
               </tr>
+              <% }); %>
             </tbody>
         </table>
     </div>
@@ -279,12 +283,12 @@
         if (validateForm()) {
           $.ajax({
             type: "POST",
-            url: "/edited-data",
+            url: "/edited-data/"+'<%= data._id %>',
             data: $(form).serialize(),
             success: function (response) {
               console.log("Server Response:", response);
               if (response.success) {
-                location.href('/');
+                location.href= '/cdata'
               }
             }
           });

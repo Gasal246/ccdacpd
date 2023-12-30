@@ -34,6 +34,8 @@ router.post('/delete-data', authentication.checkAdmin, dataController.deleteData
 
 router.get('/edit-data', authentication.checkAdmin, pageController.editDataPage)
 
+router.post('/edited-data/:id', authentication.checkAdmin, dataController.editedData)
+
 // ########################## SETTINGS ########################
 router.get('/settings/:id', authentication.checkAdmin, pageController.settingsPage)
 

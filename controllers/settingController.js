@@ -10,8 +10,8 @@ var transporter = nodemailer.createTransport({
   port: 465,
   secure: true,
   auth: {
-    user: "gasalgasal246@gmail.com",
-    pass: "szglvviqkkjbywad"
+    user: "ccdawebportal@gmail.com",
+    pass: "jknseczrkzpyjdia"
   }
 });
 
@@ -101,7 +101,7 @@ module.exports = {
           await newAdmin.save().then((data)=>{
             const verificationUrl = process.env.V_URI + data._id;
             const mailOptions = {
-              from: "gasalgasal246@gmail.com",
+              from: "ccdawebportal@gmail.com",
               to: data.email,
               subject: "Admin of CCDA added you as new administrator, You added by: "+addby.name,
               text: `Click on the link verify email: ${verificationUrl}, Your current password is:"${req.body.pass}" Don't forget to change it after login for making you secure..`

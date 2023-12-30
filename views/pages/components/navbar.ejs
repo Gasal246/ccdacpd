@@ -37,7 +37,7 @@
             data-bs-toggle="dropdown"
             aria-expanded="false"
           >
-          <%= cookData.admin.name || 'Guest' %>
+          <%= cookData.admin ? cookData.admin.name : 'Guest' %>
           </a>
           <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
             <li>
@@ -46,7 +46,7 @@
               >
             </li>
             <li>
-              <a class="dropdown-item" href="/settings/<%= cookData.admin.id || 'Guest' %>"
+              <a class="dropdown-item" href="/settings/<%= cookData.admin ? cookData.admin.id : 'Guest' %>"
                 ><i class="fa-solid fa-gear"></i> settings</a
               >
             </li>

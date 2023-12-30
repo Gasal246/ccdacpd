@@ -86,7 +86,7 @@ module.exports = {
     try {
       const id = req.query.id
       const data = await Data.findById(id)
-      console.log("Editdata: ", data);
+      // console.log("Editdata: ", data);
       if(!data){
         return
       }
@@ -97,4 +97,5 @@ module.exports = {
       res.redirect('/error?on='+on+'&msg='+msg)
     }
   },
+  
 };
