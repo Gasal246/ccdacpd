@@ -12,7 +12,7 @@ const pdfController = {
       const data = await Data.findById(uid);
 
       // Use puppeteer to generate PDF from HTML template
-      const browser = await puppeteer.launch();
+      const browser = await puppeteer.launch({ headless: 'new' });
       const page = await browser.newPage();
 
       // Load the template dynamically
