@@ -4,7 +4,6 @@ const { Readable } = require('stream');
 const path = require('path');
 const ejs = require('ejs');
 
-
 const pdfController = {
   processPdf: async (req, res) => {
     try {
@@ -25,16 +24,14 @@ const pdfController = {
       await browser.close();
 
       // Stream the PDF to the user for download
-      const stream = new Readable();
-      stream.push(pdfBuffer);
-      stream.push(null);
-
       res.setHeader('Content-Type', 'application/pdf');
       res.setHeader('Content-Disposition', `attachment; filename=${data.Formnumber || 'document'}.pdf`);
 
-      stream.pipe(res);
-      // res.json({success: true})
+      // Send the PDF buffer as the response
+      res.end(pdfBuffer);
+
     } catch (error) {
+      console.error("Error generating PDF:", error);
       let on = 'Adding a new administrator';
       let msg = error.message;
       res.redirect('/error?on=' + on + '&msg=' + msg);

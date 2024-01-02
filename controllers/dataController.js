@@ -27,12 +27,12 @@ module.exports = {
         i++;
       }
       console.log("Tabledata: ", tableData);
-      const lastForm = await Data.find({}, {Formnumber: 1}).sort({ Formnumber: -1 }).limit(1)
-      let FormNumber = lastForm.length > 0 ? lastForm[0].Formnumber+1 : 1
-      console.log(lastForm[0]);
+      // const lastForm = await Data.find({}, {Formnumber: 1}).sort({ Formnumber: -1 }).limit(1)
+      // let FormNumber = lastForm.length > 0 ? lastForm[0].Formnumber+1 : 1
+      // console.log(lastForm[0]);
       let admin = req.cookies.admin.name
       const newData = new Data({
-        Formnumber: FormNumber,
+        Formnumber: parseInt(req.body.formno),
         Panchayath: req.body.panchayath,
         Ward: req.body.ward,
         Sthalam: req.body.sthalam,
@@ -113,7 +113,7 @@ module.exports = {
       console.log("Tabledata: ", tableData);
       let admin = req.cookies.admin.name
       const newData = {
-        Formnumber: req.body.formno,
+        Formnumber: parseInt(req.body.formno),
         Panchayath: req.body.panchayath,
         Ward: req.body.ward,
         Sthalam: req.body.sthalam,

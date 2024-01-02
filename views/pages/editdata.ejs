@@ -11,7 +11,7 @@
             <h5>Chirakkalpadi Community Development Association</h6>
         </div>
         <div class="col-12 col-md-6 mt-3" data-aos="fade-left">
-            <h6 class="text-center">Form No. <span class="text-secondary"><%= data.Formnumber || 00 %></span></h5>
+            <input type="number" class="form-control m-1" name="formno" placeholder="ഫോറം നമ്പര്‍" value="<%= data.Formnumber || 00 %>" required>
             <input type="text" class="form-control m-1" name="panchayath" placeholder="പഞ്ചായത്ത്‌" value="<%= data.Panchayath || '' %>" required>
             <input type="text" class="form-control m-1" name="ward" placeholder="വാര്‍ഡ്‌" value="<%= data.Ward || '' %>" required>
             <input type="text" class="form-control m-1" name="sthalam" placeholder="സ്ഥലം" value="<%= data.Sthalam || '' %>" required>
@@ -184,7 +184,6 @@
                 <textarea type="text" class="form-control" name="extra2"><%= data.Extra2 || '' %></textarea>
             </div>
         </div>
-        <input type="number" name="formno" value="<%= data.Formnumber || '' %>">
     </div>
     </div>
     <div class="px-5 mb-5">
