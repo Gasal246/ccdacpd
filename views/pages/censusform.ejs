@@ -3,7 +3,7 @@
 <!-- NavBar -->
 <%- include('components/navbar.ejs') %>
 <div class="wrapper-body">
-<form>
+<form id="mainForm">
     <div class="container">
     <div class="row">
         <div class="col-12 col-md-6 d-flex align-items-center justify-content-center animate__animated animate__backInDown" style="flex-direction: column;">
@@ -276,7 +276,7 @@
         tableBody.appendChild(newRow);
       });
   
-      submitButton.addEventListener("click", function () {
+      document.getElementById("mainForm").addEventListener("submit", function () {
         if (validateForm()) {
           $.ajax({
             type: "POST",
