@@ -63,8 +63,9 @@ module.exports = {
         Addon: Date.now(),
         Written: admin,
       });
-      await newData.save();
-      res.json({ success: true });
+      await newData.save().then((data)=>{
+        return res.json({ success: true });
+      })
     } catch (error) {
       let on = "Saving Data";
       let msg = error.message;

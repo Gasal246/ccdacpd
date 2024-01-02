@@ -276,16 +276,16 @@
         tableBody.appendChild(newRow);
       });
   
-      document.getElementById("mainForm").addEventListener("submit", function () {
-        if (validateForm()) {
+      document.getElementById("mainForm").addEventListener("submit", function (e) {
+          if (validateForm()) {
+          e.preventDefault()
           $.ajax({
             type: "POST",
             url: "/data", // Replace with your actual backend endpoint
             data: $(form).serialize(),
-            success: function (response) {
-              console.log("Server Response:", response);
-              if (response.success) {
-                location.href('/');
+            success: (res) => {
+              if (res.success) {
+                location.reload()
               }
             }
           });
