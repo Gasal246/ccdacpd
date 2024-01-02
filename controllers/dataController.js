@@ -64,7 +64,7 @@ module.exports = {
         Written: admin,
       });
       await newData.save();
-      req.json({ success: true });
+      res.json({ success: true });
     } catch (error) {
       let on = "Saving Data";
       let msg = error.message;
