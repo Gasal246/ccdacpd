@@ -20,7 +20,7 @@
     />
     <link rel="stylesheet" href="http://localhost:3000/stylesheets/pdf.css">
   </head>
-  <body style="font-family: 'malayalam', sans-serif;">
+  <body style="font-family: 'malayalam', sans-serif!important">
 
     <div class="pdf-container">
         <div class="header">
@@ -78,6 +78,7 @@
                     <th style="width: 100px;">വൈവാഹിക അവസ്ഥ</th>
                     <th style="width: 100px;">ജോലി</th>
                     <th style="width: 100px;">ജോലി സ്ഥലം</th>
+                    <th style="width: 100px;">മേഖല</th>
                     <th>അനാഥര്‍</th>
                     <th>വിദ്യഭ്യാസ യോഗ്യത</th>
                     <th>പഠിക്കുന്ന തരം</th>
@@ -99,6 +100,7 @@
                       <td><%= row.Vivaham || '' %></td>
                       <td><%= row.Joli || '' %></td>
                       <td><%= row.Jolisthalam || '' %></td>
+                      <td><%= row.Mekala || '' %></td>
                       <td><%= row.Anathar || '' %></td>
                       <td><%= row.Education || '' %></td>
                       <td><%= row.Standard || '' %></td>

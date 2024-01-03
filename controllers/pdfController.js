@@ -19,7 +19,7 @@ const pdfController = {
       const templateHtml = await ejs.renderFile(templatePath, { data });
 
       await page.setContent(templateHtml);
-      const pdfBuffer = await page.pdf({ format: 'A4' });
+      const pdfBuffer = await page.pdf({ format: 'A3' });
 
       await browser.close();
 

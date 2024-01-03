@@ -35,6 +35,7 @@ const DataSchema = new Schema({
      Insurance: { type: String },
      Joli: { type: String },
      Jolisthalam: { type: String },
+     Mekala: { type: String },
      Linkam: { type: String },
      Peru: { type: String },
      Phone: { type: String },
