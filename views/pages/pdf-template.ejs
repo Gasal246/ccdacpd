@@ -24,14 +24,14 @@
 
     <div class="pdf-container">
         <div class="header">
-            <img style="height: 120px;" src="http://localhost:3000/images/top.png" alt="top-Image">
+            <img style="height: 100px;" src="http://localhost:3000/images/top.png" alt="top-Image">
             <div class="sidebox">
                 <h6 class="text-center" style="font-size: 13px; font-weight: 700;">ഓഫീസ് ഉപയോഗത്തിന്</h6>
                 <div class="row">
                     <span class="mal-6 m-1">ഫോറം നമ്പര്‍: <span><%= data.Formnumber || 0 %></span></span>
-                    <span class="mal-6 m-1">പഞ്ചായത്ത്‌: <span>കരക്കുരുഷി</span></span>
-                    <span class="mal-6 m-1">വാര്‍ഡ്‌: <span>06</span></span>
-                    <span class="mal-6 m-1">സ്ഥലം: <span>വാഴംബുറം</span></span>
+                    <span class="mal-6 m-1">പഞ്ചായത്ത്‌: <span><%= data.Panchayath || 0 %></span></span>
+                    <span class="mal-6 m-1">വാര്‍ഡ്‌: <span><%= data.Ward || 0 %></span></span>
+                    <span class="mal-6 m-1">സ്ഥലം: <span><%= data.Sthalam || 0 %></span></span>
                 </div>
             </div>
         </div>

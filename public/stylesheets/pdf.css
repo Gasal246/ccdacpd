@@ -7,6 +7,7 @@
 }
 .sidebox {
   width: 100%;
+  min-width: 320px;
   padding: 10px 15px;
   border: 2px solid black;
   border-radius: 15px;
