@@ -21,7 +21,7 @@ module.exports = {
   dataPage: async (req, res) => {
     try {
       let page = parseInt(req.query.page) || 1;
-      let limit = parseInt(req.query.limit) || 50;
+      let limit = parseInt(req.query.limit) || 80;
 
       let skip = (page - 1) * limit;
 
@@ -51,6 +51,7 @@ module.exports = {
         totalPages: Math.ceil(totalCount / limit),
         searchQuery,
         limit,
+        totalData: totalCount,
       });
     } catch (error) {
         let on = "Data page rendering"

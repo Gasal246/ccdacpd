@@ -18,6 +18,9 @@
           Showing results for: <%= searchQuery %>
         </div>
       <% } %>
+      <div class="row total-data-info text-center">
+        <p style="font-weight: 500;"><span class="p-2" style="background: rgb(226, 236, 188);border-radius: 10px;"><%= (currentPage - 1) * limit + 1 %> - <%= (currentPage - 1) * limit + data.length %></span> of <span class="p-2" style="background: rgb(233, 241, 204);border-radius: 10px;"><%= totalData %></span></p>
+      </div>
         <table class="table table-striped-columns bg-transparent table-data animate__animated animate__fadeInUp">
             <thead>
               <tr>
