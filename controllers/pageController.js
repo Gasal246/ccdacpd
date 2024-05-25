@@ -29,12 +29,14 @@ module.exports = {
       let searchQuery = req.query.search || "";
       let regex = new RegExp(searchQuery, "i");
 
+      console.log(searchQuery)
+
       // Fetch data based on the search query
       const data = await Data.find({
         $or: [
+          { Formnumber: Number(searchQuery) || 0 },
           { Gperu: regex },
           { Grahanathan: regex },
-          { Mobile: regex },
           { Panchayath: regex },
           { Written: regex },
         ],
